@@ -8,7 +8,7 @@ const Loginpage = () => {
     e.preventDefault();
     if (logindata) {
       axios
-        .post("http://localhost:4000/api/user/login", logindata)
+        .post("https://blogswebsitebackend.onrender.com/api/user/login", logindata)
         .then((resp) => {
           console.log(resp);
           localStorage.setItem("token",resp.data.access_token)

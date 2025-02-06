@@ -14,7 +14,7 @@ const Signuppage = () => {
     e.preventDefault();
     if (formData.password === formData.confirmpassword) {
       axios
-        .post("http://localhost:4000/api/user/register", formData)
+        .post("https://blogswebsitebackend.onrender.com/api/user/register", formData)
         .then((resp) => {
           console.log(resp);
           location.href = "/login";

@@ -17,7 +17,7 @@ const Form = () => {
     e.preventDefault();
     console.log("Form Data Submitted:", formData);
     axios
-      .post("http://localhost:4000/api/blogs/add", formData)
+      .post("https://blogswebsitebackend.onrender.com/api/blogs/add", formData)
       .then((response) => {
         setFormData({
           name: "",
