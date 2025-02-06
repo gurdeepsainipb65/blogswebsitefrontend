@@ -13,7 +13,10 @@ export default function Navbar() {
     <nav className="bg-blue-600 p-4 text-white sticky top-0 z-50 shadow-lg">
       <div className="container mx-auto flex justify-between items-center">
         {/* Logo or Brand Name */}
-        <div className="text-2xl font-bold">Bloggers</div>
+        <Link className="flex justify-center items-center gap-2" to="/">
+        <div><img className="h-8" src="src\assets\bloglogo.svg" alt="" /></div>
+          <div className="text-2xl font-bold">Bloggers</div>
+        </Link>
 
         {/* Hamburger Menu for Mobile */}
         <div className="md:hidden">
@@ -39,16 +42,6 @@ export default function Navbar() {
           </button>
         </div>
 
-        {/* Navigation Links (Desktop) */}
-        <ul className="hidden md:flex space-x-6">
-          <li className="text-2xl font-extrabold flex">
-            <Link to="/">Blogs</Link>
-          </li>
-          <li className="text-2xl font-extrabold">
-            <Link to="/postblogs">Post Blog</Link>
-          </li>
-        </ul>
-
         {/* Login and Sign Up Buttons (Desktop) */}
         {is_authenticated() ? (
           <div className="hidden md:flex space-x-4">
@@ -69,13 +62,13 @@ export default function Navbar() {
           <div className="hidden md:flex space-x-4">
             <Link
               to="/signup"
-              className="bg-white text-blue-600 px-4 py-2 rounded-lg hover:bg-blue-100 transition duration-300"
+              className="bg-white lg:w-32 lg:flex lg:justify-center font-semibold lg:items-center lg:rounded-3xl text-blue-600 px-4 py-2 rounded-lg hover:bg-blue-100 transition duration-300"
             >
               Signup
             </Link>
             <Link
               to="/login"
-              className="bg-white text-blue-600 px-4 py-2 rounded-lg hover:bg-blue-100 transition duration-300"
+              className="bg-white lg:w-32 lg:flex lg:justify-center font-semibold lg:items-center lg:rounded-3xl text-blue-600 px-4 py-2 rounded-lg hover:bg-blue-100 transition duration-300"
             >
               Log in
             </Link>
@@ -93,14 +86,6 @@ export default function Navbar() {
                 className="block hover:text-blue-200 transition duration-300"
               >
                 Blogs
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="/postblogs"
-                className="block hover:text-blue-200 transition duration-300"
-              >
-                Post Blog
               </Link>
             </li>
             {is_authenticated() ? (
