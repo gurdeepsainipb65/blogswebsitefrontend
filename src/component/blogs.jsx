@@ -8,7 +8,7 @@ export default function Blogspage() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:4000/api/blogs")
+      .get("https://blogswebsitebackend.onrender.com/api/blogs")
       .then((response) => {
         console.log(response);
         setBlog(response.data.blogs);
