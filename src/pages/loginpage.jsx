@@ -1,19 +1,22 @@
 import axios from "axios";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Loginpage = () => {
   const [logindata, setlogindata] = useState({ email: "", password: "" });
+  const navigate = useNavigate();
   const handleSubmit = (e) => {
     e.preventDefault();
     if (logindata) {
       axios
-        .post("https://blogswebsitebackend.onrender.com/api/user/login", logindata)
+        .post(
+          "https://blogswebsitebackend.onrender.com/api/user/login",
+          logindata
+        )
         .then((resp) => {
           console.log(resp);
-          localStorage.setItem("token",resp.data.access_token)
-          location.href = "/postblogs";
-
+          localStorage.setItem("token", resp.data.access_token);
+          navigate("/postblogs");
         });
     }
   };

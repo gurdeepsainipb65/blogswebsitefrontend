@@ -1,9 +1,11 @@
 import axios from "axios";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Signuppage = () => {
-  const[error,seterror]=useState("")
+  const [error, seterror] = useState("");
+  const navigate = useNavigate();
+
   const [formData, setFormData] = useState({
     username: "",
     confirmpassword: "",
@@ -14,15 +16,17 @@ const Signuppage = () => {
     e.preventDefault();
     if (formData.password === formData.confirmpassword) {
       axios
-        .post("https://blogswebsitebackend.onrender.com/api/user/register", formData)
+        .post(
+          "https://blogswebsitebackend.onrender.com/api/user/register",
+          formData
+        )
         .then((resp) => {
           console.log(resp);
-          location.href = "/login";
+          navigate("/login");
         })
         .catch((error) => console.error(error));
-    } else{
-    seterror("password is not match")
-      
+    } else {
+      seterror("password is not match");
     }
   };
 
@@ -93,12 +97,7 @@ const Signuppage = () => {
               />
             </label>
           </div>
-          {error && (
-            <span className="text-red-500">{error}</span>
-          )}
-          
-
-          
+          {error && <span className="text-red-500">{error}</span>}
 
           <button
             className="w-full py-3 px-6 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-800 transition-all duration-300 ease-in-out transform hover:scale-105"
