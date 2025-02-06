@@ -1,7 +1,13 @@
 import { useState } from "react";
 import axios from "axios";
+import Loader from "./loader";
 
 const Form = () => {
+  const[loading,setloading] = useState(true)
+  setTimeout(() => {
+    setloading(false)
+    
+  }, 1000);
   const [formData, setFormData] = useState({
     name: "",
     image: "",
@@ -31,6 +37,14 @@ const Form = () => {
         console.log(error);
       });
   };
+
+  if (loading) {
+    return (
+      <div className="h-[72vh] flex justify-center items-center">
+        <Loader/>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">

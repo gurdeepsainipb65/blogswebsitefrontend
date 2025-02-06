@@ -1,13 +1,16 @@
 import axios from "axios";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import Loader from "../component/loader";
 
 const Loginpage = () => {
   const [logindata, setlogindata] = useState({ email: "", password: "" });
+  const [loading, setloading] = useState(false)
   const navigate = useNavigate();
   const handleSubmit = (e) => {
     e.preventDefault();
     if (logindata) {
+      setloading(true)
       axios
         .post(
           "https://blogswebsitebackend.onrender.com/api/user/login",
@@ -20,6 +23,17 @@ const Loginpage = () => {
         });
     }
   };
+
+  if (loading) {
+    return (
+      <div className="h-[72vh] flex justify-center items-center">
+        <Loader/>
+      </div>
+    );
+  }
+
+
+
   return (
     <div
       className="h-screen flex items-center justify-center bg-gray-100"

@@ -1,10 +1,12 @@
 import axios from "axios";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import Loader from "../component/loader";
 
 const Signuppage = () => {
   const [error, seterror] = useState("");
   const navigate = useNavigate();
+  const [loading, setloading] = useState(false)
 
   const [formData, setFormData] = useState({
     username: "",
@@ -15,6 +17,7 @@ const Signuppage = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (formData.password === formData.confirmpassword) {
+      setloading(true)
       axios
         .post(
           "https://blogswebsitebackend.onrender.com/api/user/register",
@@ -22,6 +25,7 @@ const Signuppage = () => {
         )
         .then((resp) => {
           console.log(resp);
+        
           navigate("/login");
         })
         .catch((error) => console.error(error));
@@ -29,6 +33,14 @@ const Signuppage = () => {
       seterror("password is not match");
     }
   };
+
+  if (loading) {
+    return (
+      <div className="h-[72vh] flex justify-center items-center">
+        <Loader/>
+      </div>
+    );
+  }
 
   return (
     <div className="flex h-screen w-full justify-center items-center">
