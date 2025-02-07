@@ -14,7 +14,7 @@ export default function Navbar() {
       <div className="container mx-auto flex justify-between items-center">
         {/* Logo or Brand name  */}
         <Link className="flex justify-center items-center gap-2" to="/">
-        <div><img className="h-8" src="public\bloglogo.svg" alt="" /></div>
+        <div><img className="h-8" src="/bloglogo.svg" alt="" /></div>
           <div className="text-2xl font-bold">Bloggers</div>
         </Link>
 
