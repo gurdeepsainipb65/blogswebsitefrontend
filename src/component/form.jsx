@@ -1,12 +1,12 @@
 import { useState } from "react";
 import axios from "axios";
 import Loader from "./loader";
-
+import { useNavigate } from "react-router-dom";
 const Form = () => {
-  const[loading,setloading] = useState(true)
+  const [loading, setloading] = useState(true);
+  const navigate = useNavigate()
   setTimeout(() => {
-    setloading(false)
-    
+    setloading(false);
   }, 1000);
   const [formData, setFormData] = useState({
     name: "",
@@ -31,6 +31,7 @@ const Form = () => {
           category: "",
           description: "",
         });
+        navigate("/");
         console.log(response);
       })
       .catch((error) => {
@@ -41,7 +42,7 @@ const Form = () => {
   if (loading) {
     return (
       <div className="h-[72vh] flex justify-center items-center">
-        <Loader/>
+        <Loader />
       </div>
     );
   }
@@ -107,7 +108,7 @@ const Form = () => {
             </label>
             <textarea
               name="description"
-              required 
+              required
               minLength={20}
               value={formData.description}
               onChange={handleChange}
