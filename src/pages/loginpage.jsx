@@ -80,7 +80,7 @@ const Loginpage = () => {
       </form>
       <p className="mt-4 bg-white h-12 w-44 rounded-2xl text-sm flex justify-center items-center">
         <img className="w-8 h-6" src="/public/google.svg" alt="" />
-        <button onClick={googleLogin}> Login with Google</button>
+        <a onClick={googleLogin}> Login with Google</a>
       </p>
     </div>
   );
