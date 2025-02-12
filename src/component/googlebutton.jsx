@@ -1,5 +1,7 @@
+import { BaseURL } from "../BaseURL";
+
 const googleLogin = () => {
-    window.location.href = "http://localhost:4000/auth/google"; 
+    window.location.href = `${BaseURL}/auth/google`; 
 };
 
 export default googleLogin

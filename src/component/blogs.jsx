@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import Loader from "./loader";
 import PostButton from "../assets/postbutton";
 import { Link } from "react-router-dom";
+import { BaseURL } from "../BaseURL";
 
 export default function Blogspage() {
   const [blog, setBlog] = useState([]);
@@ -12,7 +13,7 @@ export default function Blogspage() {
   useEffect(() => {
     setloading(true);
     axios
-      .get("https://blogswebsitebackend.onrender.com/api/blogs")
+      .get(`${BaseURL}/api/blogs`)
       .then((response) => {
         console.log(response);
         setBlog(response.data.blogs);

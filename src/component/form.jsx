@@ -2,6 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 import Loader from "./loader";
 import { useNavigate } from "react-router-dom";
+import { BaseURL } from "../BaseURL";
 const Form = () => {
   const [loading, setloading] = useState(true);
   const navigate = useNavigate()
@@ -23,7 +24,7 @@ const Form = () => {
     e.preventDefault();
     console.log("Form Data Submitted:", formData);
     axios
-      .post("https://blogswebsitebackend.onrender.com/api/blogs/add", formData)
+      .post(`${BaseURL}/api/blogs/add`, formData)
       .then((response) => {
         setFormData({
           name: "",
