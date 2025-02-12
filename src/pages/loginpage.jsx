@@ -2,15 +2,16 @@ import axios from "axios";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Loader from "../component/loader";
+import googleLogin from "../component/googlebutton";
 
 const Loginpage = () => {
   const [logindata, setlogindata] = useState({ email: "", password: "" });
-  const [loading, setloading] = useState(false)
+  const [loading, setloading] = useState(false);
   const navigate = useNavigate();
   const handleSubmit = (e) => {
     e.preventDefault();
     if (logindata) {
-      setloading(true)
+      setloading(true);
       axios
         .post(
           "https://blogswebsitebackend.onrender.com/api/user/login",
@@ -27,16 +28,14 @@ const Loginpage = () => {
   if (loading) {
     return (
       <div className="h-[72vh] flex justify-center items-center">
-        <Loader/>
+        <Loader />
       </div>
     );
   }
 
-
-
   return (
     <div
-      className="h-screen flex items-center justify-center bg-gray-100"
+      className="h-screen flex flex-col items-center justify-center bg-gray-100"
       onSubmit={handleSubmit}
     >
       <form className="bg-white p-8 rounded-lg w-96">
@@ -79,6 +78,10 @@ const Loginpage = () => {
           </Link>
         </p>
       </form>
+      <p className="mt-4 bg-white h-12 w-44 rounded-2xl text-sm flex justify-center items-center">
+        <img className="w-8 h-6" src="/public/google.svg" alt="" />
+        <button onClick={googleLogin}> Login with Google</button>
+      </p>
     </div>
   );
 };
