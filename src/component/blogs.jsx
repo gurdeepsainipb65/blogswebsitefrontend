@@ -17,13 +17,11 @@ export default function Blogspage() {
       .then((response) => {
         console.log(response);
         setBlog(response.data.blogs);
-        if (blog) {
-          setloading(false);
-        }
+        setloading(false);
       })
       .catch((error) => {
         console.error("Error fetching data:", error);
-      }); // It's a good practice to handle errors
+      });
   }, []);
 
   if (loading) {
@@ -37,7 +35,9 @@ export default function Blogspage() {
   return (
     <div>
       <div className="flex w-full justify-center items-center gap-5 p-6 h-32">
-        <div className="lg:text-3xl text-blue-500 font-bold">You Can Upload Your Blogs Here</div>
+        <div className="lg:text-3xl text-blue-500 font-bold">
+          You Can Upload Your Blogs Here
+        </div>
         <Link to="/postblogs">
           <PostButton />
         </Link>
@@ -49,7 +49,7 @@ export default function Blogspage() {
             image={item.image}
             name={item.name}
             description={item.description}
-          /> // Assuming you want to pass item as a prop
+          /> 
         ))}
       </div>
     </div>
