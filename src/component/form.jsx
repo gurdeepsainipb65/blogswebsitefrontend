@@ -24,7 +24,7 @@ const Form = () => {
     e.preventDefault();
     console.log("Form Data Submitted:", formData);
     axios
-      .post(`${BaseURL}/api/blogs/add`, formData)
+      .post(`${BaseURL}/api/blogs/add`, formData, {headers:{Authorization: localStorage.getItem("token")}})
       .then((response) => {
         setFormData({
           name: "",

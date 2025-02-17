@@ -30,6 +30,7 @@ useEffect(()=>{
           console.log(resp);
           localStorage.setItem("token", resp.data.access_token);
           navigate("/postblogs");
+          setloading(false)
         });
     }
   };
