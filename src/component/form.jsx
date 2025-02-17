@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { BaseURL } from "../BaseURL";
 const Form = () => {
   const [loading, setloading] = useState(true);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   setTimeout(() => {
     setloading(false);
   }, 1000);
@@ -17,14 +17,17 @@ const Form = () => {
   });
 
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("Form Data Submitted:", formData);
     axios
-      .post(`${BaseURL}/api/blogs/add`, formData, {headers:{Authorization: localStorage.getItem("token")}})
+      .post(`${BaseURL}/api/blogs/add`, formData, {
+        headers: { Authorization: localStorage.getItem("token") },
+      })
       .then((response) => {
         setFormData({
           name: "",

@@ -2,7 +2,6 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Loader from "../component/loader";
-import googleLogin from "../component/googlebutton";
 import { BaseURL } from "../BaseURL";
 
 const Loginpage = () => {
@@ -10,29 +9,22 @@ const Loginpage = () => {
   const [loading, setloading] = useState(true);
   const navigate = useNavigate();
 
-useEffect(()=>{
-  setTimeout(() => {
-  setloading(false)
-}, 1000);
-  
-},[])
-
+  useEffect(() => {
+    setTimeout(() => {
+      setloading(false);
+    }, 1000);
+  }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (logindata) {
       setloading(true);
-      axios
-        .post(
-          "https://blogswebsitebackend.onrender.com/api/user/login",
-          logindata
-        )
-        .then((resp) => {
-          console.log(resp);
-          localStorage.setItem("token", resp.data.access_token);
-          navigate("/postblogs");
-          setloading(false)
-        });
+      axios.post(`${BaseURL}/api/user/login`, logindata).then((resp) => {
+        console.log(resp);
+        localStorage.setItem("token", resp.data.access_token);
+        navigate("/postblogs");
+        setloading(false);
+      });
     }
   };
 
@@ -91,7 +83,13 @@ useEffect(()=>{
       </form>
       <p className="mt-4 bg-white h-12 w-44 rounded-2xl text-sm flex justify-center items-center">
         <img className="w-8 h-6" src="/google.svg" alt="" />
-        <a className="font-bold p-2 text-gray-700" href={`${BaseURL}/auth/google`}> Login with Google</a>
+        <a
+          className="font-bold p-2 text-gray-700"
+          href={`${BaseURL}/auth/google`}
+        >
+          {" "}
+          Login with Google
+        </a>
       </p>
     </div>
   );
