@@ -79,8 +79,8 @@ const Loginpage = () => {
         </p>
       </form>
       <p className="mt-4 bg-white h-12 w-44 rounded-2xl text-sm flex justify-center items-center">
-        <img className="w-8 h-6" src="/public/google.svg" alt="" />
-        <a onClick={googleLogin}> Login with Google</a>
+        <img className="w-8 h-6" src="/google.svg" alt="" />
+        <button className="font-bold" onClick={googleLogin}> Login with Google</button>
       </p>
     </div>
   );
