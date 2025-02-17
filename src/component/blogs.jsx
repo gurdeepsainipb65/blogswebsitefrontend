@@ -8,10 +8,9 @@ import { BaseURL } from "../BaseURL";
 
 export default function Blogspage() {
   const [blog, setBlog] = useState([]);
-  const [loading, setloading] = useState(false);
+  const [loading, setloading] = useState(true);
 
   useEffect(() => {
-    setloading(true);
     axios
       .get(`${BaseURL}/api/blogs`)
       .then((response) => {
