@@ -1,13 +1,22 @@
 import axios from "axios";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Loader from "../component/loader";
 import googleLogin from "../component/googlebutton";
 
 const Loginpage = () => {
   const [logindata, setlogindata] = useState({ email: "", password: "" });
-  const [loading, setloading] = useState(false);
+  const [loading, setloading] = useState(true);
   const navigate = useNavigate();
+
+useEffect(()=>{
+  setTimeout(() => {
+  setloading(false)
+}, 1000);
+  
+},[])
+
+
   const handleSubmit = (e) => {
     e.preventDefault();
     if (logindata) {
