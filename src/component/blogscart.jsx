@@ -5,6 +5,7 @@ export default function Blogscart({image,category,description,name}) {
       <div className="max-w-sm rounded-2xl overflow-hidden shadow-xl h-[30rem] bg-white p-6 transition-transform duration-300 hover:scale-105">
         <img
           src={image}
+          loading="lazy"
           alt="pods"
           className="w-full h-56 object-cover rounded-lg"
         />
