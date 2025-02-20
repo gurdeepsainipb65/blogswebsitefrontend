@@ -22,7 +22,7 @@ const Loginpage = () => {
       axios.post(`${BaseURL}/api/user/login`, logindata).then((resp) => {
         console.log(resp);
         localStorage.setItem("token", resp.data.access_token);
-        navigate("/postblogs");
+        window.location.href = "/postblogs";
         setloading(false);
       });
     }
