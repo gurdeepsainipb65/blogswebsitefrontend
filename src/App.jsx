@@ -5,6 +5,7 @@ import Form from "./component/form";
 import Loginpage from "./pages/loginpage";
 import Signuppage from "./pages/signuppage";
 import Protectedroute from "./authentication/protectedroute";
+import Yourblog from "./component/yourblog";
 function App() {
   return (
     <div>
@@ -22,6 +23,7 @@ function App() {
           ></Route>
           <Route path="/login" element={<Loginpage />}></Route>
           <Route path="/signup" element={<Signuppage />}></Route>
+          <Route path="/yourblog" element={<Yourblog/>}></Route>
         </Routes>
       </Router>
     </div>

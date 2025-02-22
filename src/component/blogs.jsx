@@ -14,13 +14,12 @@ export default function Blogspage() {
     axios
       .get(`${BaseURL}/api/blogs`)
       .then((response) => {
-        console.log(response);
         setBlog(response.data.blogs);
-        setloading(false);
       })
       .catch((error) => {
         console.error("Error fetching data:", error);
       });
+    setloading(false);
   }, []);
 
   if (loading) {
@@ -48,7 +47,7 @@ export default function Blogspage() {
             image={item.image}
             name={item.name}
             description={item.description}
-          /> 
+          />
         ))}
       </div>
     </div>

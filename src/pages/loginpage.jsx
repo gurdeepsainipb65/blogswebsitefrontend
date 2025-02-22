@@ -1,13 +1,12 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Loader from "../component/loader";
 import { BaseURL } from "../BaseURL";
 
 const Loginpage = () => {
   const [logindata, setlogindata] = useState({ email: "", password: "" });
   const [loading, setloading] = useState(true);
-  const navigate = useNavigate();
 
   useEffect(() => {
     setTimeout(() => {
@@ -87,7 +86,6 @@ const Loginpage = () => {
           className="font-bold p-2 text-gray-700"
           href={`${BaseURL}/auth/google`}
         >
-          {" "}
           Login with Google
         </a>
       </p>

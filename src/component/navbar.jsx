@@ -46,14 +46,20 @@ export default function Navbar() {
         {is_authenticated() ? (
           <div className="hidden md:flex space-x-4">
             <Link
+              to="/yourblog"
+              className="bg-white font-bold text-blue-600 px-4 py-2 rounded-lg hover:bg-blue-100 transition duration-300"
+            >
+              Your Blogs
+            </Link>
+            <Link
               to="/profile"
-              className="bg-white text-blue-600 px-4 py-2 rounded-lg hover:bg-blue-100 transition duration-300"
+              className="bg-white font-bold text-blue-600 px-4 py-2 rounded-lg hover:bg-blue-100 transition duration-300"
             >
               Profile
             </Link>
             <button
               onClick={Logout}
-              className="bg-white text-blue-600 px-4 py-2 rounded-lg hover:bg-blue-100 transition duration-300"
+              className="bg-white font-bold text-blue-600 px-4 py-2 rounded-lg hover:bg-blue-100 transition duration-300"
             >
               Log Out
             </button>
