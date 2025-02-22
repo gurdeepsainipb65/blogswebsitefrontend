@@ -16,15 +16,22 @@ const Loginpage = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (logindata) {
+    if (logindata.email && logindata.password) {
       setloading(true);
-      axios.post(`${BaseURL}/api/user/login`, logindata).then((resp) => {
-        console.log(resp);
-        localStorage.setItem("token", resp.data.access_token);
-        window.location.href = "/postblogs";
-        setloading(false);
-      });
-      
+      axios
+        .post(`${BaseURL}/api/user/login`, logindata)
+        .then((resp) => {
+          console.log(resp);
+          localStorage.setItem("token", resp.data.access_token);
+          window.location.href = "/postblogs";
+        })
+        .catch((error) => {
+          console.error("Login error:", error);
+          alert("Login failed. Please check your credentials and try again.");
+        })
+        .finally(() => {
+          setloading(false);
+        });
     }
   };
 
