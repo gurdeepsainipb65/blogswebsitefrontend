@@ -24,6 +24,7 @@ const Loginpage = () => {
         window.location.href = "/postblogs";
         setloading(false);
       });
+      
     }
   };
 
@@ -38,9 +39,9 @@ const Loginpage = () => {
   return (
     <div
       className="h-screen flex flex-col items-center justify-center bg-gray-100"
-      onSubmit={handleSubmit}
+      
     >
-      <form className="bg-white p-8 rounded-lg w-96">
+      <form onSubmit={handleSubmit} className="bg-white p-8 rounded-lg w-96">
         <p className="text-2xl font-bold text-center mb-8 text-blue-600">
           Log in to your account
         </p>
@@ -52,6 +53,7 @@ const Loginpage = () => {
               setlogindata({ ...logindata, email: e.target.value });
             }}
             placeholder="Enter email"
+            required
             className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500"
           />
         </div>

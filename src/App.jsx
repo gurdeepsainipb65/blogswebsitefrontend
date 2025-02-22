@@ -1,5 +1,5 @@
 import Navbar from "./component/navbar";
-import { BrowserRouter as Router, Route, Routes, } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Blogspage from "./component/blogs";
 import Form from "./component/form";
 import Loginpage from "./pages/loginpage";
@@ -23,7 +23,7 @@ function App() {
           ></Route>
           <Route path="/login" element={<Loginpage />}></Route>
           <Route path="/signup" element={<Signuppage />}></Route>
-          <Route path="/yourblog" element={<Yourblog/>}></Route>
+          <Route path="/yourblog" element={<Yourblog />}></Route>
         </Routes>
       </Router>
     </div>
