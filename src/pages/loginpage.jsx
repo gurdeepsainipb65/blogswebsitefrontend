@@ -16,23 +16,22 @@ const Loginpage = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (logindata.email && logindata.password) {
-      setloading(true);
-      axios
-        .post(`${BaseURL}/api/user/login`, logindata)
-        .then((resp) => {
-          console.log(resp);
-          localStorage.setItem("token", resp.data.access_token);
-          window.location.href = "/postblogs";
-        })
-        .catch((error) => {
-          console.error("Login error:", error);
-          alert("Login failed. Please check your credentials and try again.");
-        })
-        .finally(() => {
-          setloading(false);
-        });
-    }
+
+    setloading(true);
+    axios
+      .post(`${BaseURL}/api/user/login`, logindata)
+      .then((resp) => {
+        console.log(resp);
+        localStorage.setItem("token", resp.data.access_token);
+        window.location.href = "/";
+      })
+      .catch((error) => {
+        console.error("Login error:", error);
+        alert("Login failed. Please check your credentials and try again.");
+      })
+      .finally(() => {
+        setloading(false);
+      });
   };
 
   if (loading) {
@@ -44,10 +43,7 @@ const Loginpage = () => {
   }
 
   return (
-    <div
-      className="h-screen flex flex-col items-center justify-center bg-gray-100"
-      
-    >
+    <div className="h-screen flex flex-col items-center justify-center bg-gray-100">
       <form onSubmit={handleSubmit} className="bg-white p-8 rounded-lg w-96">
         <p className="text-2xl font-bold text-center mb-8 text-blue-600">
           Log in to your account
