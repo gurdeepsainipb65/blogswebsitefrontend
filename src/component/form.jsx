@@ -23,12 +23,15 @@ const Form = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Form Data Submitted:", formData);
+    console.log("Submitting form data:", formData);
+    console.log("Token:", localStorage.getItem("token"));
+
     axios
       .post(`${BaseURL}/api/blogs/add`, formData, {
         headers: { Authorization: localStorage.getItem("token") },
       })
       .then((response) => {
+        console.log("Response received:", response);
         setFormData({
           name: "",
           image: "",
@@ -36,7 +39,6 @@ const Form = () => {
           description: "",
         });
         navigate("/");
-        console.log(response);
       })
       .catch((error) => {
         console.log(error);
