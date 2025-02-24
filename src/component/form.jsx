@@ -12,7 +12,7 @@ const Form = () => {
   const [formData, setFormData] = useState({
     name: "",
     image: "",
-    category: "",
+    categary: "",
     description: "",
   });
 
