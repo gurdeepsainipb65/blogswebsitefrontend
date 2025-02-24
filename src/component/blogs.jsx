@@ -15,14 +15,13 @@ export default function Blogspage() {
       .get(`${BaseURL}/api/blogs`)
       .then((response) => {
         setBlog(response.data.blogs);
-        if (blog) {
-          return setloading(false);
-        }
+        setloading(false)
       })
       .catch((error) => {
         console.error("Error fetching data:", error);
+        setloading(false)
       });
-  }, [blog]);
+  },[]);
 
   if (loading) {
     return (

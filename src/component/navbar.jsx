@@ -105,6 +105,14 @@ export default function Navbar() {
                   </Link>
                 </li>
                 <li>
+                  <Link
+                    to="/yourblog"
+                    className="block bg-white text-blue-600 px-4 py-2 rounded hover:bg-blue-100 transition duration-300"
+                  >
+                    Your blog
+                  </Link>
+                </li>
+                <li>
                   <button
                     onClick={Logout}
                     className="block w-full text-left bg-white text-blue-600 px-4 py-2 rounded hover:bg-blue-100 transition duration-300"
